@@ -130,7 +130,7 @@ To build and get online your landing page, click on My Landing Pages menu option
 
 You will get a form to set a page name, a description and select the template you want to use. 
 
-The key point is taht when the template gets selected, all the related {{mustaches}} will get listed so you only have to fill the related boxes and save your work to get your page online.
+The key point is that when the template gets selected, all the related {{mustaches}} will get listed so you only have to fill the related boxes and save your work to get your page online.
 
 ```notes
 When saved, the page will get visible 
@@ -142,8 +142,8 @@ IMPORTANT NOTE: once saved, the page name cannot be changed.
 </aside>
 
 ```notes
-If you change the template, all the previous values may be deleted.
-your pages.
+If you change the template, all the 
+previous values may be deleted.
 ```
 
 <img src="images/landingpage.page-update-mustaches.png"  class="img-photo" />
