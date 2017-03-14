@@ -6,7 +6,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://landingpage.services'>Sign Up</a>
-  - <a href='https://github.com/NachoColl/landingpage.services/issues' target="_blank">Need help? click here</a>
+  - <a href='https://github.com/NachoColl/landingpage.services.docs/issues' target="_blank">Need help? click here</a>
 
 
 search: false
