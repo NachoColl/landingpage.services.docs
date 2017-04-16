@@ -5,7 +5,7 @@ language_tabs:
  - notes: Notes
 
 toc_footers:
-  - <a href='https://landingpage.services'>Sign Up</a>
+  - <a href='https://mustache.website'>Sign Up</a>
   - <a href='https://github.com/NachoColl/landingpage.services.docs/issues' target="_blank">Need help? click here</a>
 
 

@@ -1,10 +1,10 @@
-# landingpage.services help
+# mustache.website help pages
 
-Some help documentation on how to use landingpage.services. Powered by [slate](https://github.com/lord/slate).
+Some help documentation on how to use mustache.website for your Email Marketing and Landing Page needs. 
 
-You can browse the docs at [docs.landingpage.services](http://docs.landingpage.services)
+You can browse the docs at [msutache.website](https://mustache.website/help/index.html)
 
-## landingpage.services Issues
+## mustache.website Issues
 
 If you have any issue when using the service, please add a new issue here.
 
@@ -20,3 +20,5 @@ To run locally:
 To get the HTML static files from source, use:
 
 `bundle exec middleman build --clean --build-dir=../docs`
+
+Help documentation powered by [slate](https://github.com/lord/slate).
