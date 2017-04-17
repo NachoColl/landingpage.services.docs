@@ -99,42 +99,166 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-	  <ul class="tocify-header" style="padding-top:10px; font-size:1em"><li class="tocify-item tocify-focus"><a>landingpage.services</a></li></ul>
+	  <ul class="tocify-header" style="font-size:1em; margin-left: -5px; margin-top: 2px;"><li class="tocify-item tocify-focus"><a class="pull-left hidden-sm hidden-xs" style="line-height: 54px; "><img src="https://mustache.website/_images/moustache-op-small.png" style="vertical-align:middle;" /> <span style="">&nbsp;Help Pages</span></a> </li></ul>
         <div class="lang-selector">
               <a href="#" data-language-name="notes">Notes</a>
         </div>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='https://landingpage.services'>Sign Up</a></li>
-            <li><a href='https://github.com/NachoColl/landingpage.services.docs/issues' target="_blank">Need help? click here</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id="introduction">Introduction</h1>
-<pre class="highlight plaintext"><code>landingpage.services is a free service :)
+<pre class="highlight plaintext"><code>Use mustache.website to send your Email Marketing
+and host your Landing Pages! 
 </code></pre>
-<p>Welcome to <a href="https://landingpage.services">landingpage.services</a> help pages. </p>
+<p><a href="https://mustache.website">mustache.website</a> is a service you can use to manage your <strong>Contact List</strong>, send <strong>Email Marketing</strong> and host your <strong>Landing Pages</strong>. By using state-of-the-art <a href="https://aws.amazon.com/">Amazon Web Services</a> features, <a href="https://mustache.website">mustache.website</a> delivers a professional tool at the minimum cost. </p>
 
-<p>A free tool you can use to create and host simple landing pages.</p>
+<p>You get the same, for less.</p>
 
-<h2 id="how-it-works">How it works</h2>
+<h2 id="service-support">Service Support</h2>
+<pre class="highlight plaintext"><code>Do not hesitate to create a new issue
+if you need help.
+</code></pre>
+<p>If you found an issue, please click <a href="https://github.com/NachoColl/mustache.website.docs/issues">here</a> to open a new ticket or contact <a href="https://www.linkedin.com/in/ignaciocoll/">me</a> on LinkedIn.</p>
+
+<h1 id="contacts-list">Contacts List</h1>
+
+<p>To manage your contact list you can manually add contacts, import your Contacts from a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> or use the available API to manage your contacts programmatically.</p>
+
+<h2 id="adding-contacts">Adding Contacts</h2>
+<pre class="highlight plaintext"><code>Please note that the Email attribute is a key 
+value that cannot be changed after creation. 
+
+If you need to change a contact email, you must 
+delete it and create a new contact.
+</code></pre>
+<p>To add a new contact, just select <strong>My Contacts &gt; Contact List</strong> menu option and then click on the <strong>New Contact</strong> button. Enter the contact attributes and click on the Save button.</p>
+
+<p><img src="images/new-contact.jpg" class="img-photo" /></p>
+
+<h2 id="import-contacts">Import Contacts</h2>
+<pre class="highlight plaintext"><code>It's recommended that you initially 
+try to import some small files with 
+a few records to check the results.
+</code></pre>
+<p>Before you start, please check that your <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> follows the next rules:</p>
+
+<ul>
+<li>The first row contains the column names.</li>
+<li>There is an Email attribute column.</li>
+<li>Values are Numbers, Texts or Dates.</li>
+<li>Date columns use one of the allowed formats:
+
+<ul>
+<li>DD/MM/YYYY, e.g. 24/03/2017</li>
+<li>MM/DD/YYYY, e.g. 01/25/2015</li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a> format (milliseconds), e.g. 1492364709813 representing Sun Apr 16 2017 19:45:09 GMT+0200.</li>
+</ul></li>
+</ul>
+
+<p><br/></p>
+
+<p>To start the import process click on <strong>My Contacts &gt; Import</strong> menu option and select your CSV file. </p>
+
+<p><img src="images/import-contact-select-file.jpg" class="img-photo" /></p>
+<pre class="highlight plaintext"><code>Double check your CSV file column mapping!
+</code></pre>
+<p>Take a look at the columns mapping that it&rsquo;s proposed and select the appropiate option for each column.</p>
+
+<p><img src="images/import-contact-mapping.jpg" class="img-photo" /></p>
+<pre class="highlight plaintext"><code>When you click the Start Import button, the 
+CSV file is sent to the system and 
+each row is then processed. 
+</code></pre>
+<p>Once you&rsquo;ve finished mapping your CSV file columns, click on the <strong>Start Import</strong> button to start the import process.</p>
+<pre class="highlight plaintext"><code>You will get the import results on your 
+account email, including the total
+processed contacts and the total 
+imported contacts number.
+
+If there are errors while processing 
+the file, you will also get some 
+error details.
+</code></pre>
+<p><img src="images/import-contact-result.jpg" class="img-photo" /></p>
+
+<h2 id="target-groups">Target Groups</h2>
+<pre class="highlight plaintext"><code>If no new Target Groups are created, you're 
+just going to be able to send a Campaign 
+to all your contacts.
+</code></pre>
+<p>When you create a new Email Marketing campaign, you select the <a href="https://en.wikipedia.org/wiki/Target_audience">Target Group</a> to which you want to send the message. That means that if you want to send your campaign to an specific group of contacts, you have to create a new Target Group that defines that group (e.g. Canada Users).</p>
+<pre class="highlight plaintext"><code>A Target Group is a database filter 
+definition.
+</code></pre>
+<p><br/></p>
+
+<p>To create a target group, go to <strong>My Contacts &gt; Contact List</strong> and click on the <strong>Target Groups</strong> button.</p>
+
+<p><img src="images/target-group-create.jpg" class="img-photo" /></p>
+<pre class="highlight plaintext"><code>Before saving a new Target Group, click on 
+the Search button to test the filter.
+</code></pre>
+<p>Add the attributes values that define your target group, enter a Target Group name and click on the <strong>Save as NEW target group</strong> button.</p>
+
+<h1 id="email-campaigns">Email Campaigns</h1>
+
+<p>To create a new Email Campaign go to <strong>Email Marketing &gt; Campaigns</strong> and click on <strong>New Campaign</strong> button. Enter a campaign name, select the Target Group you want to send the email message and click on the <strong>Save</strong> button.</p>
+
+<p><img src="images/campaign-select-target-group.jpg" class="img-photo" /></p>
+
+<h2 id="message-content">Message Content</h2>
+
+<p>After you&rsquo;ve set the campaign name and Target Group, click on the campaign <strong>email content</strong> button to setup the campaign email message. </p>
+
+<p><img src="images/campaign-create.jpg" class="img-photo" /></p>
+<pre class="highlight plaintext"><code>You can change the base template HTML code
+when required to get the email message 
+format you need.
+</code></pre>
+<p>The first time you click on the <strong>email content</strong> button you will get the option to select the base template you want to start building your campaign email. Check for the available templates and select the option that best fits your needs.</p>
+
+<p><img src="images/campaign-select-base-template.jpg" class="img-photo" /></p>
+
+<p>If you take a look at the next image, the content is defined by filling the text areas on the right, and not directly on the HTML preview.</p>
+<pre class="highlight plaintext"><code>mustache.website templates use the 
+{{mustache}} technique so you can 
+build your content by just filling 
+a few textboxes.
+</code></pre>
+<p><img src="images/campaign-mail-content.jpg" class="img-photo" /></p>
+
+<p>If the selected template needs some modifications to fit your needs, you can change the HTML code. Click on the <strong>Change HTML Code</strong> button, and an HTML editor will be displayed. Just take care that if you want to add a new mustache, you must use the correct format.</p>
+
+<p><img src="images/campaign-mail-content-change-html-code.jpg" class="img-photo" /></p>
+
+<h2 id="campaign-execution">Campaign Execution</h2>
+
+<p>Once your campaign is ready go to <strong>Email Marketing &gt; Campaigns</strong> list and click on the <strong>run the campaign</strong> to start sending the email messages to your contacts. </p>
+<pre class="highlight plaintext"><code>You can pause a campaign by just
+selecting the Stop campaign option.
+</code></pre>
+<p><img src="images/campaign-options.jpg" class="img-photo" /></p>
+
+<p>While running, you will get updates indicating the number of messages sent, delivered and the related bounces and complaints.</p>
+
+<h1 id="landing-pages">Landing Pages</h1>
 <pre class="highlight plaintext"><code>HTML pages are saved on AWS S3 bucket 
 as static HTML pages. 
 
 Please note that you can use your own domain(s)
 to access your pages.
 </code></pre>
-<p>A landing page is created by selecting an HTML template with some {{<a href="http://mustache.github.io/">mustaches</a>}} that define the areas you can change when building a page. To create a new page then, you just need to select a template and fill the mustaches. </p>
+<p><a href="https://mustache.website">mustache.website</a> landing pages are created by selecting an HTML template with some {{<a href="http://mustache.github.io/">mustaches</a>}} that define the areas you can change. To create a new web page then you just need to select a template and fill the {{mustaches}}. </p>
 
 <p>There is no need to go through a new HTML design process every time!</p>
 
-<h1 id="html-templates">HTML Templates</h1>
+<h2 id="web-templates">WEB Templates</h2>
 
 <blockquote>
-<p>My first HTML template.</p>
+<p>A WEB template example.</p>
 </blockquote>
 <pre class="highlight plaintext"><code>
 &lt;!DOCTYPE html&gt;
@@ -152,27 +276,29 @@ to access your pages.
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Before you can go for your landing pages you need to create at least one template. To start, just go to Templates menu option and click on the <strong>New Template</strong> button. </p>
+<p>Before you can go for your landing pages you need to create at least one template. To start, select <strong>Landing Pages &gt; WEB Templates</strong> menu option and click on the <strong>New Template</strong> button. </p>
 
-<p><img src="images/landingpage-template-list.png" class="img-photo"/></p>
+<p><img src="images/landing-page-new.jpg" class="img-photo"/></p>
 
-<p>On the new template form, enter a name and a description and take a look at the HTML code. A simple HTML template is proposed, with just a single mustache: <code class="prettyprint">{{{text-hello_text-your_page_text}}}</code>. That means that using this initial template to build a new page, a simple text will be required to go.</p>
-<pre class="highlight plaintext"><code>
-When coding your template, external references 
-(css files, scripts) must use a complete http path.
-
+<p>Check the available base templates you can start from, and click on the <strong>Select</strong> button for the selected template.</p>
+<pre class="highlight plaintext"><code>You can also start to code your template 
+from scratch if required!
 </code></pre>
-<p><img src="images/landingpage-new.png"  class="img-photo"/></p>
+<p><img src="images/landing-page-select-base-template.jpg" class="img-photo"/></p>
 <pre class="highlight plaintext"><code>
 Just fill the 'mustaches', click save, and your 
 landing page will be online!
 
 </code></pre>
-<p>Adapt or change the HTML you require for your template, and remember to use {{mustaches}} to the define the areas that will be required to modify when building the page.</p>
+<p>Once selected, you will get an HTML editor so you can change the HTML. Just remember to use {{mustaches}} to the define the areas that will be required to modify when building the page later.</p>
 
-<h2 id="adding-mustaches">Adding mustaches</h2>
+<p><img src="images/landing-page-html-editor.jpg" class="img-photo"/></p>
 
-<p><a href="https://landingpage.services">landingpage.services</a> works by using HTML {{<a href="http://mustache.github.io/">mustaches</a>}} templates to define the variable content. To make things easy when writing the content, we added different types of mustaches that are coded as follows: <code class="prettyprint">{{&lt;meta|text|icon|image|link|html&gt;-&lt;name&gt;-&lt;description&gt;}</code>.</p>
+<h3 id="adding-mustaches">Adding mustaches</h3>
+
+<p>To make things easy when building your landing pages, we added different types of mustaches that are coded as follows: </p>
+
+<p><code class="prettyprint">{{&lt;meta|text|icon|image|link|html&gt;-&lt;name&gt;-&lt;description&gt;}}</code></p>
 
 <p><img src="images/template-mustache.png"  class="img-photo" /></p>
 <pre class="highlight plaintext"><code>To insert a mustache in your HTML code, 
@@ -196,15 +322,15 @@ By using those types, you get some extra help on page creation. For example, if 
 
 <p><img src="images/landingpage.icon-mustache.png"  class="img-photo" /></p>
 
-<h1 id="landing-pages">Landing Pages</h1>
-<pre class="highlight plaintext"><code>We made that tool so you don't
-have to do any design decision when building
-your pages.
+<h2 id="landing-page">Landing Page</h2>
+<pre class="highlight plaintext"><code>Using WEB Templates you don't
+have to do any design decision 
+when building your pages.
 
 </code></pre>
-<p>To build and get online your landing page, click on My Landing Pages menu option and then on the <strong>New Landing Page</strong> button. </p>
+<p>To build and get online your landing page, click on <strong>Landing Pages &gt; My Pages</strong> menu option and then click on the <strong>New Landing Page</strong> button. </p>
 
-<p><img src="images/landingpage.page-list.png"  class="img-photo" /></p>
+<p><img src="images/landing-page-build.jpg" class="img-photo"/></p>
 
 <p>You will get a form to set a page name, a description and select the template you want to use. </p>
 
@@ -220,7 +346,7 @@ previous values may be deleted.
 </code></pre>
 <p><img src="images/landingpage.page-update-mustaches.png"  class="img-photo" /></p>
 
-<h2 id="default-url">Default URL</h2>
+<h3 id="default-url">Default URL</h3>
 
 <p>When your page gets saved, it&rsquo;s hosted on AWS S3 instantly. To check how it looks, just go to your page default address by clicking on the top page link.</p>
 
@@ -228,7 +354,7 @@ previous values may be deleted.
 
 <p>That link will look like <code class="prettyprint">https://s3-us-west-2.amazonaws.com/files.landingpage.services/us-west-2:ca67230b-4f84-43bb-96d7-7fcbfdf1a034/My-first-page.html</code>, but of course you can use your own domain(s) if it&rsquo;s required.</p>
 
-<h2 id="use-your-domain-s">Use your domain(s)</h2>
+<h3 id="use-your-domain-s">Use your domain(s)</h3>
 <pre class="highlight plaintext"><code>A page can have multiple domains pointing to it!
 </code></pre>
 <p>To use your own domain create a new page as described above and click on the *<em>Options</em>+ button.</p>

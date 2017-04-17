@@ -1,10 +1,10 @@
-# mustache.website help pages
+# "mustache.website" help pages
 
 Some help documentation on how to use mustache.website for your Email Marketing and Landing Page needs. 
 
-You can browse the docs at [msutache.website](https://mustache.website/help/index.html)
+You can browse the docs at [mustache.website](https://mustache.website/help/index.html)
 
-## mustache.website Issues
+## How to report issues.
 
 If you have any issue when using the service, please add a new issue here.
 
