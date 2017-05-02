@@ -59,7 +59,7 @@ body {
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
-#toc > ul > li > a > span {
+#toc>ul>li>a>span {
     float: right;
     background-color: #2484FF;
     border-radius: 40px;
@@ -182,7 +182,7 @@ body {
     // Subheaders are the submenus that slide open
     // in the table of contents.
     .tocify-subheader {
-        display: none; // tocify will override this when needed
+        //display: none; // tocify will override this when needed
         background-color: $nav-subitem-bg;
         font-weight: 500;
         .tocify-item>a {
@@ -360,7 +360,7 @@ body {
         margin-top: 1em;
     }
     h1:first-child,
-    div:first-child + h1 {
+    div:first-child+h1 {
         border-top-width: 0;
         margin-top: 0;
     }
@@ -374,8 +374,8 @@ body {
     }
     // h2s right after h1s should bump right up
     // against the h1s.
-    h1 + h2,
-    h1 + div + h2 {
+    h1+h2,
+    h1+div+h2 {
         margin-top: $h1-margin-bottom * -1;
         border-top: none;
     }
@@ -393,12 +393,32 @@ body {
     h6 {
         font-size: 10px;
     }
+    h4 {
+        font-size: 12px;
+        font-weight: 400;
+        padding-bottom: 10px;
+        color: #262626;
+    }
+    h4:before {
+        content: '[ ';
+    }
+    h4:after {
+        content: ' ]';
+    }
     hr {
         margin: 2em 0;
-        border-top: 2px solid $examples-bg;
-        border-bottom: 2px solid $main-bg;
+        width: 150px;
+        margin-left: 27px;
+        border-top: 1px dashed #b93d6a;
+    }
+    hr:after {
+        content: 'related types';
+        float: left;
+        color: #b93d6a;
+        font-size: 11px;
     }
     table {
+        border-collapse: separate;
         margin-bottom: 1em;
         overflow: auto;
         th,
@@ -555,7 +575,7 @@ body {
     #nav-button {
         display: block;
     }
-    .tocify-wrapper .tocify-item > a {
+    .tocify-wrapper .tocify-item>a {
         padding-top: 0.3em;
         padding-bottom: 0.3em;
     }
@@ -578,7 +598,7 @@ body {
         width: auto;
         float: none;
     }
-    %right-col + %left-col {
+    %right-col+%left-col {
         margin-top: $main-padding;
     }
 }

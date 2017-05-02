@@ -1,10 +1,10 @@
 ---
-title: Help Pages
-
 language_tabs:
  - notes: Notes
-
-
+ - javascript: Javascript
+ - csharp: .NET
+ 
+ 
 search: false
 ---
 
@@ -348,13 +348,244 @@ Please note that you also need to add a CNAME entry on your domain's DNS server.
 
 `www.mydomain.com   CNAME   ec2-52-38-184-2.us-west-2.compute.amazonaws.com`
 
+
+# API
+
+You can use this API to:
+
+- add new contacts (email receivers) programmatically,
+- send transactional emails (emails not related with any campaign).
+
+
+<aside class="notice">
+To manage and execute your email marketing campaigns you must login at the website.
+</aside>
+
+
+## API endpoint
+
+To call mustache.website API methods, use **https://api.mustache.website** API endpoint .
+
+For example, to create a new Contact, you call the metod `https://api.mustache.website/contact/add`
+
+## Authentication
+
+> Authentication example (select language on top)
+
+```javascript
+$.ajax({
+    method: 'POST',
+  	...
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Api-Key': 'my-api-key'
+    },
+   	...
+  });
+```
+
+**mustache.website** uses API keys to allow access to the API methods. You can get an API key at the [website](https://mustache.website).
+
+We expect for the API key to be included in all API requests to the server in a header that looks like the following:
+
+`'X-Api-Key': 'my-api-key'`
+
+<aside class="notice">
+You must replace <code>my-api-key</code> with your personal API key.
+</aside>
+
+## Passing parameters
+
+Method call parameters must be passed in the Body part of the request message using [JSON](https://en.wikipedia.org/wiki/JSON) format.
+
+The `Content-Type` header attribute must be set to `application/json`.
+
+```javascript
+
+// How to set dates and numbers.
+
+{
+	
+	...
+	
+	"date" : "1482932562"
+	
+	...
+	
+	"total" : 19.99
+	
+	...
+	
+	"countryCode" : "FR"
+	
+	...
+	
+}
+```
+
+
+### Dates Format
+
+When setting dates, use [Unix time format](https://en.wikipedia.org/wiki/Unix_time). 
+
+For example, `1482932562` date value translates to `Wednesday, 28-Dec-16 13:42:42 UTC`.
+
+### Numbers Format
+
+Numbers must use the dot "." symbol as the decimal mark (f.ex. 20.99). This is due to [JSON format](http://www.json.org/) requirements.
+
+If you need to display a diferent format (f.ex. 20,99) please check Country Code parameter.
+
+### Country Code
+
+Country code (f.ex. `US`) is used to format currency and date values (and also to calculate some country related statistics). 
+
+An example.
+
+You may need to display date values using the French format (f.ex. 24/12/2017). In that case you must set `countryCode` to `FR` value.
+
+
+## Send Email API
+
+<span style="color:green;font-size: 20px; font-weight: bold">mailing/email/send</span>
+
+> Send email example 
+
+```javascript
+var sendEmailJson = {
+    "from": { 
+        "fromName" : "ACME Corporation", 
+        "fromAddress" : "hello@acme.com"
+        },
+    "destination": {
+        "toAddresses" : [ "customer1@mycontacts.com", "customer-info@mycontacts.com" ],
+        "ccAddresses" : [ "customer-sales@mycontacts.com" ]       
+    },
+    "subject": {"data" : "Welcome to Acme!" },
+    "body": 
+      {
+        "html": { "data": "<span style=\"color:blue\">Hello!</span>"} ,
+        "text": { "data": "Hello!"}
+      }
+};
+
+$.ajax({
+    method: 'POST',
+    url: 'https://api.mustache.website/mailing/email/send',
+    data: JSON.stringify(sendEmailJson),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Api-Key': 'ExV0d92KzQ8QgsTVnevddpbB8cUaAfPs7ntVF8g0'
+    },
+    dataType: 'json',
+    success: function (response) {
+      console.log(response); 
+    },
+    error: function (xhr, textStatus, errorThrown) {
+      console.log(xhr);
+    }
+  });
+```
+
+
+Use this method to send an email.
+
+
+### HTTP Request
+
+`POST https://api.mustache.webservice/mailing/email/send`
+
+### Request Parameters
+
+Parameter | Type | Description 
+--------- | -------  | ----------- 
+from | [FromEmail] | set your name and reply to email address
+destination | [DestinationEmailAddresses] | set destination addresses
+subject | [TextContent] | subject description
+body | [EmailBody] | email body content, including text and HTML format
+
+---
+
+#### FromEmail
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+fromName | string | address name, (e.g. ACME Corporation)
+fromAddress | string | email address (e.g. hello@acme.com) 
+
+
+#### DestinationEmailAddresses
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+toAddresses | list | list of destination addresses
+ccAddresses | list | CC list of addresses
+bccAddresses | list | BCC list of addresses
+
+#### TextContent
+
+Parameter | Type  | Default Value | Description 
+--------- | ------- | ------- | ----------- 
+charset | string | UTF-8 | sets the content character set
+data | string | | the text content (e.g. Hello, this is a message)
+
+
+#### EmailBody
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+html | TextContent | HTML content
+text | TextContent | non-formatted content
+
+
+### Response Parameters
+
+> Send email API response example 
+
+```javascript
+{
+    "remainingCredits": 995,
+    "bounceRatio": 0.3,
+    "complaintRatio" : 0.1
+}
+```
+
+When success (HTTP response code 200), you will get the next message in the body part as json text.
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+remainingCredits | Number | The remaining email credits
+bounceRatio | Percentaje | Your current bounce ratio
+complaintRatio | Percentaje | Your current complaint ratio
+
+
+<aside class="warning">
+Take care of the remaining credits and ratios before sending a new message.
+</aside>
+
+
+## API Error Codes
+
+The mustache.website API uses the following error codes:
+
+
+Error Code | Meaning
+---------- | -------
+400 | Bad Request -- Check your request parameters.
+401 | Unauthorized -- Check your API key
+403 | Forbidden / Too Many Requests -- Slow down!
+404 | Not Found -- Your API key is valid but there is no related user on our servers.
+405 | Method Not Allowed -- You tried to access with an invalid method
+406 | Not Acceptable -- You requested a format that isn't json
+410 | Gone -- The requested object has been removed
+418 | I'm a teapot
+429 | Too Many Requests -- Slow down!
+500 | Internal Server Error -- We had a problem with our server. Try again later.
+503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+
+
 <br/><br/>
 
 <span style="font-size:10px">This is THE END ;)</span>
-
-
-
-
-
 
 
