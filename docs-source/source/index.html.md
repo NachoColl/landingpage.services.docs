@@ -544,13 +544,27 @@ text | TextContent | non-formatted content
 
 ```javascript
 {
+"statusCode": 200,
+"statusMessage": "",
+"info": {
     "remainingCredits": 995,
     "bounceRatio": 0.3,
     "complaintRatio" : 0.1
+    }  
 }
 ```
 
 When success (HTTP response code 200), you will get the next message in the body part as json text.
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+statusCode | number | The call execution result (check [API Status Codes](#api-status-codes))
+statusMessage | string | The result text message (e.g. error details)
+info | [SendEmailResponseUserInfo] | Some user info
+
+---
+
+#### SendEmailResponseUserInfo
 
 Parameter | Type  | Description 
 --------- | ------- | ----------- 
@@ -564,13 +578,14 @@ Take care of the remaining credits and ratios before sending a new message.
 </aside>
 
 
-## API Error Codes
+## API Status Codes
 
-The mustache.website API uses the following error codes:
+The mustache.website API uses the following status codes:
 
 
-Error Code | Meaning
+Code | Meaning
 ---------- | -------
+200 | The call was executed correctly.
 400 | Bad Request -- Check your request parameters.
 401 | Unauthorized -- Check your API key
 403 | Forbidden / Too Many Requests -- Slow down!

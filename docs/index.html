@@ -655,12 +655,44 @@ You must replace <code>my-api-key</code> with your personal API key.
 <p>Send email API response example </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
+<span class="s2">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">"statusMessage"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+<span class="s2">"info"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"remainingCredits"</span><span class="p">:</span> <span class="mi">995</span><span class="p">,</span>
     <span class="s2">"bounceRatio"</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
     <span class="s2">"complaintRatio"</span> <span class="p">:</span> <span class="mf">0.1</span>
+    <span class="p">}</span>  
 <span class="p">}</span>
 </code></pre>
 <p>When success (HTTP response code 200), you will get the next message in the body part as json text.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>number</td>
+<td>The call execution result (check <a href="#api-status-codes">API Status Codes</a>)</td>
+</tr>
+<tr>
+<td>statusMessage</td>
+<td>string</td>
+<td>The result text message (e.g. error details)</td>
+</tr>
+<tr>
+<td>info</td>
+<td>[SendEmailResponseUserInfo]</td>
+<td>Some user info</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h4 id="sendemailresponseuserinfo">SendEmailResponseUserInfo</h4>
 
 <table><thead>
 <tr>
@@ -690,16 +722,20 @@ You must replace <code>my-api-key</code> with your personal API key.
 Take care of the remaining credits and ratios before sending a new message.
 </aside>
 
-<h2 id="api-error-codes">API Error Codes</h2>
+<h2 id="api-status-codes">API Status Codes</h2>
 
-<p>The mustache.website API uses the following error codes:</p>
+<p>The mustache.website API uses the following status codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>200</td>
+<td>The call was executed correctly.</td>
+</tr>
 <tr>
 <td>400</td>
 <td>Bad Request &ndash; Check your request parameters.</td>
