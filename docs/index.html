@@ -6,14 +6,14 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Nacho Coll" />
-    <meta name="description" content="Email marketing for less. Build your landing page for free." />
-    <meta name="keywords" content="email marketing, mailing, send email, landing page, landing, web page" />
+    <meta name="description" content="Mustache Email Marketing help pages." />
+    <meta name="keywords" content="mustache.website help, mustache help, email marketing, mailing, send email, landing page, landing, web page" />
     <meta name="robots" content="all">
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Email marketing for less. Build your landing page for free." />
-    <meta property="og:description" content="Send your mailing for one tenth of the cost. Host your landing pages for free." />
-    <meta property="og:url" content="https://mustache.website" />
+    <meta property="og:title" content="Mustache Email Marketing help pages." />
+    <meta property="og:description" content="Get instructions on how to use Mustache to send your email campaigns and host your landing pages for free." />
+    <meta property="og:url" content="https://mustache.website/help/index.htm" />
     <meta property="og:site_name" content="mustache.website" />
     <link rel="canonical" href="https://mustache.website" />
     <!-- Icons -->
@@ -389,7 +389,7 @@ The Options button will only get displayed after saving your page.
 
 <h1 id="api">API</h1>
 
-<p>You can use this API to:</p>
+<p>You can use the Mustache API to:</p>
 
 <ul>
 <li>add new contacts (email receivers) programmatically,</li>
@@ -399,6 +399,10 @@ The Options button will only get displayed after saving your page.
 <aside class="notice">
 To manage and execute your email marketing campaigns you must login at the website.
 </aside>
+
+<p>If your coding using dotNET, you can install the available Nuget package:</p>
+
+<p><code class="prettyprint">PM &gt; Install-Package mustache.website.sdk.dotNET</code></p>
 
 <h2 id="api-endpoint">API endpoint</h2>
 
@@ -420,6 +424,9 @@ To manage and execute your email marketing campaigns you must login at the websi
     <span class="p">},</span>
     <span class="p">...</span>
   <span class="p">});</span>
+</code></pre><pre class="highlight csharp"><code>
+ <span class="n">MustacheAPI</span> <span class="n">API</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MustacheAPI</span><span class="p">(</span><span class="s">"my-api-key"</span><span class="p">);</span>
+
 </code></pre>
 <p><strong>mustache.website</strong> uses API keys to allow access to the API methods. You can get an API key at the <a href="https://mustache.website">website</a>.</p>
 
@@ -517,6 +524,25 @@ You must replace <code>my-api-key</code> with your personal API key.
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">});</span>
+</code></pre><pre class="highlight csharp"><code><span class="n">MustacheAPI</span> <span class="n">API</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MustacheAPI</span><span class="p">(&lt;</span><span class="n">YOUR_API_KEY</span><span class="p">&gt;);</span>
+
+<span class="n">SendEmailResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span><span class="k">new</span> <span class="n">Model</span><span class="p">.</span><span class="nf">Email</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">From</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">FromEmailAddress</span><span class="p">(){</span>
+        <span class="n">FromName</span> <span class="p">=</span> <span class="s">"ACME CORPORATION"</span><span class="p">,</span>
+        <span class="n">FromAddress</span> <span class="p">=</span> <span class="s">"hello@acme.com"</span>
+    <span class="p">},</span>
+    <span class="n">Destination</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DestinationEmailAddresses</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">ToAddresses</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span>
+            <span class="s">"ignacio.coll@gmail.com"</span><span class="p">,</span> <span class="s">"hello@mustache.website"</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">Subject</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TextContent</span><span class="p">()</span> <span class="p">{</span> <span class="n">Data</span> <span class="p">=</span> <span class="s">"Just a test from API Call."</span> <span class="p">},</span>
+    <span class="n">Body</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EmailBody</span><span class="p">(){</span>
+        <span class="n">Html</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TextContent</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">Data</span> <span class="p">=</span> <span class="s">"This is an HTML formatted &lt;span style=\"color:blue\"&gt;text&lt;/span&gt;!"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 </code></pre>
 <p>Use this method to send an email.</p>
 
@@ -662,6 +688,14 @@ You must replace <code>my-api-key</code> with your personal API key.
     <span class="s2">"bounceRatio"</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
     <span class="s2">"complaintRatio"</span> <span class="p">:</span> <span class="mf">0.1</span>
     <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre><pre class="highlight csharp"><code><span class="n">SendEmailResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">){</span>  
+    <span class="k">case</span> <span class="m">200</span><span class="p">:</span> <span class="c1">// message sent.</span>
+        <span class="p">...</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">...</span>
 <span class="p">}</span>
 </code></pre>
 <p>When success (HTTP response code 200), you will get the next message in the body part as json text.</p>

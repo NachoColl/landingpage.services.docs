@@ -351,7 +351,7 @@ Please note that you also need to add a CNAME entry on your domain's DNS server.
 
 # API
 
-You can use this API to:
+You can use the Mustache API to:
 
 - add new contacts (email receivers) programmatically,
 - send transactional emails (emails not related with any campaign).
@@ -361,12 +361,16 @@ You can use this API to:
 To manage and execute your email marketing campaigns you must login at the website.
 </aside>
 
+If your coding using dotNET, you can install the available Nuget package:
+
+`PM > Install-Package mustache.website.sdk.dotNET`
 
 ## API endpoint
 
 To call mustache.website API methods, use **https://api.mustache.website** API endpoint .
 
 For example, to create a new Contact, you call the metod `https://api.mustache.website/contact/add`
+
 
 ## Authentication
 
@@ -382,6 +386,12 @@ $.ajax({
     },
    	...
   });
+```
+
+```csharp
+
+ MustacheAPI API = new MustacheAPI("my-api-key");
+
 ```
 
 **mustache.website** uses API keys to allow access to the API methods. You can get an API key at the [website](https://mustache.website).
@@ -487,6 +497,27 @@ $.ajax({
   });
 ```
 
+```csharp
+MustacheAPI API = new MustacheAPI(<YOUR_API_KEY>);
+
+SendEmailResponse response = API.SendEmail(new Model.Email() {
+    From = new FromEmailAddress(){
+        FromName = "ACME CORPORATION",
+        FromAddress = "hello@acme.com"
+    },
+    Destination = new DestinationEmailAddresses() {
+        ToAddresses = new List<string>() {
+            "ignacio.coll@gmail.com", "hello@mustache.website"
+        }
+    },
+    Subject = new TextContent() { Data = "Just a test from API Call." },
+    Body = new EmailBody(){
+        Html = new TextContent() {
+            Data = "This is an HTML formatted <span style=\"color:blue\">text</span>!"
+        }
+    }
+});
+```
 
 Use this method to send an email.
 
@@ -551,6 +582,17 @@ text | TextContent | non-formatted content
     "bounceRatio": 0.3,
     "complaintRatio" : 0.1
     }  
+}
+```
+
+```csharp
+SendEmailResponse response = API.SendEmail( ... );
+
+switch(response.StatusCode){  
+    case 200: // message sent.
+        ...
+        break;
+    ...
 }
 ```
 
