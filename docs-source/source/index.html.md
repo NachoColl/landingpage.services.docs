@@ -455,7 +455,7 @@ An example.
 You may need to display date values using the French format (f.ex. 24/12/2017). In that case you must set `countryCode` to `FR` value.
 
 
-## Send Email API
+## Send Email
 
 <span style="color:green;font-size: 20px; font-weight: bold">mailing/email/send</span>
 
@@ -569,7 +569,7 @@ html | TextContent | HTML content
 text | TextContent | non-formatted content
 
 
-### Response Parameters
+### Send Email Response Parameters
 
 > Send email API response example 
 
@@ -620,6 +620,129 @@ Take care of the remaining credits and ratios before sending a new message.
 </aside>
 
 
+## Add Contact
+
+<span style="color:green;font-size: 20px; font-weight: bold">contact/add</span>
+
+> Add new contact example 
+
+```javascript
+var addContactJson = {
+    "email": "hello@nachocoll.website",
+    "firstName": "Nacho"
+    "lastName": "Coll",
+    "customAttributes": 
+      {
+        "attributeName" : "origin" ,
+        "attributeType" : "S",
+        "AttributeValue" : "mobile"
+      }
+};
+
+$.ajax({
+    method: 'POST',
+    url: 'https://api.mustache.website/contact/add',
+    data: JSON.stringify(addContactJson),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Api-Key': 'ExV0432KzQ8QgsTVnevddpbB8cUaAfPs7ntVF8g0'
+    },
+    dataType: 'json',
+    success: function (response) {
+      console.log(response); 
+    },
+    error: function (xhr, textStatus, errorThrown) {
+      console.log(xhr);
+    }
+  });
+```
+
+```csharp
+MustacheAPI API = new MustacheAPI(<YOUR_API_KEY>);
+
+AddContactResponse response = mustacheAPI.AddContact(new Contact()
+{
+    Email = "hello@nachocoll.website",
+    FirstName = "Nacho",
+    LastName = "Coll",
+    CustomAttributes = new List<CustomAttribute>() {
+        new CustomAttribute() {
+            AttributeName = "origin",
+            AttributeType = CustomAttribute.AttributeTypes.Text,
+            AttributeValue = "mobile"
+        }
+    }
+});
+```
+
+Use this method to add a new contact (email receiver) to your list.
+
+
+### HTTP Request
+
+`POST https://api.mustache.webservice/contact/add`
+
+### Request Parameters
+
+Parameter | Type | Description 
+--------- | -------  | ----------- 
+email | string | the new contact email address
+firstName | string | contact first name [optional]
+lastName | string | contact last name [optional]
+customAttributes | list of [CustomAttribute] | contact attributes
+
+---
+
+#### CustomAttribute
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+attributeName | string | the attribute name
+attributeType | <span style="color:green; opacity:0.8">AttributeType</span> | one of available types
+attributeValue | string | the attribute value 
+
+where <span style="color:green; opacity:0.8">AttributeType</span> must be:
+
+- `S` for text value,
+- `N` for number, 
+- `D1` for date formatted using day/month/year format,
+- `D2` for date formatted using month/day/year format,
+- `D3` for date using [Unix time](https://en.wikipedia.org/wiki/Unix_time) format (milliseconds).
+
+
+Please note that attribute values will be converted to related attribute type. For example, if you set an attribute type `N` (number), and set a value like `'this is not a number'`, the API call will fail.
+
+### Add Contact Response Parameters
+
+> Add contact API response example 
+
+```javascript
+{
+"statusCode": 200,
+"statusMessage": ""
+}
+```
+
+```csharp
+AddContactResponse response = API.SendEmail( ... );
+
+switch(response.StatusCode){  
+    case 200: // contact added.
+        ...
+        break;
+    ...
+}
+```
+
+When success (HTTP response code 200), you will get the next message in the body part as json text.
+
+Parameter | Type  | Description 
+--------- | ------- | ----------- 
+statusCode | number | The call execution result (check [API Status Codes](#api-status-codes))
+statusMessage | string | The result text message (e.g. error details)
+
+
+
 ## API Status Codes
 
 The mustache.website API uses the following status codes:
@@ -634,6 +757,7 @@ Code | Meaning
 404 | Not Found -- Your API key is valid but there is no related user on our servers.
 405 | Method Not Allowed -- You tried to access with an invalid method
 406 | Not Acceptable -- You requested a format that isn't json
+409 | Conflict -- Check for already existing values (e.g. already existing Contact (email))
 410 | Gone -- The requested object has been removed
 418 | I'm a teapot
 429 | Too Many Requests -- Slow down!

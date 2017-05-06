@@ -484,7 +484,7 @@ You must replace <code>my-api-key</code> with your personal API key.
 
 <p>You may need to display date values using the French format (f.ex. 24/12/2017). In that case you must set <code class="prettyprint">countryCode</code> to <code class="prettyprint">FR</code> value.</p>
 
-<h2 id="send-email-api">Send Email API</h2>
+<h2 id="send-email">Send Email</h2>
 
 <p><span style="color:green;font-size: 20px; font-weight: bold">mailing/email/send</span></p>
 
@@ -675,7 +675,7 @@ You must replace <code>my-api-key</code> with your personal API key.
 </tr>
 </tbody></table>
 
-<h3 id="response-parameters">Response Parameters</h3>
+<h3 id="send-email-response-parameters">Send Email Response Parameters</h3>
 
 <blockquote>
 <p>Send email API response example </p>
@@ -756,6 +756,173 @@ You must replace <code>my-api-key</code> with your personal API key.
 Take care of the remaining credits and ratios before sending a new message.
 </aside>
 
+<h2 id="add-contact">Add Contact</h2>
+
+<p><span style="color:green;font-size: 20px; font-weight: bold">contact/add</span></p>
+
+<blockquote>
+<p>Add new contact example </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">addContactJson</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"hello@nachocoll.website"</span><span class="p">,</span>
+    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"Nacho"</span>
+    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Coll"</span><span class="p">,</span>
+    <span class="s2">"customAttributes"</span><span class="p">:</span> 
+      <span class="p">{</span>
+        <span class="s2">"attributeName"</span> <span class="p">:</span> <span class="s2">"origin"</span> <span class="p">,</span>
+        <span class="s2">"attributeType"</span> <span class="p">:</span> <span class="s2">"S"</span><span class="p">,</span>
+        <span class="s2">"AttributeValue"</span> <span class="p">:</span> <span class="s2">"mobile"</span>
+      <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.mustache.website/contact/add'</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">addContactJson</span><span class="p">),</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+      <span class="s1">'X-Api-Key'</span><span class="p">:</span> <span class="s1">'ExV0432KzQ8QgsTVnevddpbB8cUaAfPs7ntVF8g0'</span>
+    <span class="p">},</span>
+    <span class="na">dataType</span><span class="p">:</span> <span class="s1">'json'</span><span class="p">,</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span> 
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorThrown</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+</code></pre><pre class="highlight csharp"><code><span class="n">MustacheAPI</span> <span class="n">API</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MustacheAPI</span><span class="p">(&lt;</span><span class="n">YOUR_API_KEY</span><span class="p">&gt;);</span>
+
+<span class="n">AddContactResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">mustacheAPI</span><span class="p">.</span><span class="nf">AddContact</span><span class="p">(</span><span class="k">new</span> <span class="nf">Contact</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Email</span> <span class="p">=</span> <span class="s">"hello@nachocoll.website"</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="p">=</span> <span class="s">"Nacho"</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="p">=</span> <span class="s">"Coll"</span><span class="p">,</span>
+    <span class="n">CustomAttributes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">CustomAttribute</span><span class="p">&gt;()</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="nf">CustomAttribute</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">AttributeName</span> <span class="p">=</span> <span class="s">"origin"</span><span class="p">,</span>
+            <span class="n">AttributeType</span> <span class="p">=</span> <span class="n">CustomAttribute</span><span class="p">.</span><span class="n">AttributeTypes</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span>
+            <span class="n">AttributeValue</span> <span class="p">=</span> <span class="s">"mobile"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<p>Use this method to add a new contact (email receiver) to your list.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.mustache.webservice/contact/add</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>the new contact email address</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>contact first name [optional]</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>contact last name [optional]</td>
+</tr>
+<tr>
+<td>customAttributes</td>
+<td>list of [CustomAttribute]</td>
+<td>contact attributes</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h4 id="customattribute">CustomAttribute</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attributeName</td>
+<td>string</td>
+<td>the attribute name</td>
+</tr>
+<tr>
+<td>attributeType</td>
+<td><span style="color:green; opacity:0.8">AttributeType</span></td>
+<td>one of available types</td>
+</tr>
+<tr>
+<td>attributeValue</td>
+<td>string</td>
+<td>the attribute value</td>
+</tr>
+</tbody></table>
+
+<p>where <span style="color:green; opacity:0.8">AttributeType</span> must be:</p>
+
+<ul>
+<li><code class="prettyprint">S</code> for text value,</li>
+<li><code class="prettyprint">N</code> for number, </li>
+<li><code class="prettyprint">D1</code> for date formatted using day/month/year format,</li>
+<li><code class="prettyprint">D2</code> for date formatted using month/day/year format,</li>
+<li><code class="prettyprint">D3</code> for date using <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a> format (milliseconds).</li>
+</ul>
+
+<p>Please note that attribute values will be converted to related attribute type. For example, if you set an attribute type <code class="prettyprint">N</code> (number), and set a value like <code class="prettyprint">&#39;this is not a number&#39;</code>, the API call will fail.</p>
+
+<h3 id="add-contact-response-parameters">Add Contact Response Parameters</h3>
+
+<blockquote>
+<p>Add contact API response example </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+<span class="s2">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">"statusMessage"</span><span class="p">:</span> <span class="s2">""</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight csharp"><code><span class="n">AddContactResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">){</span>  
+    <span class="k">case</span> <span class="m">200</span><span class="p">:</span> <span class="c1">// contact added.</span>
+        <span class="p">...</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre>
+<p>When success (HTTP response code 200), you will get the next message in the body part as json text.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>number</td>
+<td>The call execution result (check <a href="#api-status-codes">API Status Codes</a>)</td>
+</tr>
+<tr>
+<td>statusMessage</td>
+<td>string</td>
+<td>The result text message (e.g. error details)</td>
+</tr>
+</tbody></table>
+
 <h2 id="api-status-codes">API Status Codes</h2>
 
 <p>The mustache.website API uses the following status codes:</p>
@@ -793,6 +960,10 @@ Take care of the remaining credits and ratios before sending a new message.
 <tr>
 <td>406</td>
 <td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict &ndash; Check for already existing values (e.g. already existing Contact (email))</td>
 </tr>
 <tr>
 <td>410</td>
