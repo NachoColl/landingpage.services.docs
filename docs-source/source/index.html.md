@@ -15,7 +15,7 @@ Use mustache.website to send your Email Marketing
 and host your Landing Pages! 
 ```
 
-[mustache.website](https://mustache.website) is a service you can use to manage your **Contact List**, send **Email Marketing** and host your **Landing Pages**. By using state-of-the-art [Amazon Web Services](https://aws.amazon.com/) features, [mustache.website](https://mustache.website) delivers a professional tool at the minimum cost. 
+[mustache.website](https://mustache.website) is a service you can use to manage your **Contact List**, execute your **Email Marketing** campaigns, send **Transactional Emails** and host your **Landing Pages**. By using state-of-the-art architecture, [mustache.website](https://mustache.website) delivers a professional tool at the minimum cost. 
 
 You get the same, for less.
 
@@ -410,7 +410,7 @@ Method call parameters must be passed in the Body part of the request message us
 
 The `Content-Type` header attribute must be set to `application/json`.
 
-```javascript
+```
 
 // How to set dates and numbers.
 
@@ -573,14 +573,14 @@ text | TextContent | non-formatted content
 
 > Send email API response example 
 
-```javascript
+```
 {
-"statusCode": 200,
-"statusMessage": "",
-"info": {
-    "remainingCredits": 995,
-    "bounceRatio": 0.3,
-    "complaintRatio" : 0.1
+    "statusCode": 200,
+    "statusMessage": "",
+    "info": {
+        "remainingCredits": 995,
+        "bounceRatio": 0.3,
+        "complaintRatio" : 0.1
     }  
 }
 ```
@@ -608,17 +608,38 @@ info | [SendEmailResponseUserInfo] | Some user info
 
 #### SendEmailResponseUserInfo
 
+>Send Email response example when
+using invalid recipient address.
+
+```
+{
+    "info": {
+    "remainingCredits": 999999823,
+    "bounceRatio": 0,
+    "complaintRatio": 0,
+    "prohibitedAddresses": [
+        "bounce+9999988@simulator.amazonses.com"
+        ]
+    },
+    "statusCode": 403,
+    "statusMessage": "No destination addresses after checking related contacts bounces and complaints."
+}
+```
+
 Parameter | Type  | Description 
 --------- | ------- | ----------- 
 remainingCredits | Number | The remaining email credits
 bounceRatio | Percentaje | Your current bounce ratio
 complaintRatio | Percentaje | Your current complaint ratio
+prohibitedAddresses | List of strings | The addresses deleted from the message
 
 
 <aside class="warning">
 Take care of the remaining credits and ratios before sending a new message.
 </aside>
 
+
+Please take note that `prohibitedAddresses` attribute indicates the addresses that have been deleted from the message before sending due to bounces and complaints. When a recipient address is not valid or user sends a complaint/spam warning, we mark the related email as not-valid for sending.
 
 ## Add Contact
 
@@ -716,10 +737,10 @@ Please note that attribute values will be converted to related attribute type. F
 
 > Add contact API response example 
 
-```javascript
+```
 {
-"statusCode": 200,
-"statusMessage": ""
+    "statusCode": 200,
+    "statusMessage": ""
 }
 ```
 
@@ -750,19 +771,19 @@ The mustache.website API uses the following status codes:
 
 Code | Meaning
 ---------- | -------
-200 | The call was executed correctly.
-400 | Bad Request -- Check your request parameters.
+200 | The call was executed correctly
+400 | Bad Request -- Check your request parameters
 401 | Unauthorized -- Check your API key
-403 | Forbidden / Too Many Requests -- Slow down!
-404 | Not Found -- Your API key is valid but there is no related user on our servers.
+403 | Forbidden -- Check your credits or bounce/complaint ratios
+404 | Not Found -- Your API key is valid but there is no related user on our servers
 405 | Method Not Allowed -- You tried to access with an invalid method
 406 | Not Acceptable -- You requested a format that isn't json
 409 | Conflict -- Check for already existing values (e.g. already existing Contact (email))
 410 | Gone -- The requested object has been removed
 418 | I'm a teapot
 429 | Too Many Requests -- Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+500 | Internal Server Error -- We had a problem with our server. Try again later
+503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later
 
 
 <br/><br/>

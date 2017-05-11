@@ -127,7 +127,7 @@
 <pre class="highlight plaintext"><code>Use mustache.website to send your Email Marketing
 and host your Landing Pages! 
 </code></pre>
-<p><a href="https://mustache.website">mustache.website</a> is a service you can use to manage your <strong>Contact List</strong>, send <strong>Email Marketing</strong> and host your <strong>Landing Pages</strong>. By using state-of-the-art <a href="https://aws.amazon.com/">Amazon Web Services</a> features, <a href="https://mustache.website">mustache.website</a> delivers a professional tool at the minimum cost. </p>
+<p><a href="https://mustache.website">mustache.website</a> is a service you can use to manage your <strong>Contact List</strong>, execute your <strong>Email Marketing</strong> campaigns, send <strong>Transactional Emails</strong> and host your <strong>Landing Pages</strong>. By using state-of-the-art architecture, <a href="https://mustache.website">mustache.website</a> delivers a professional tool at the minimum cost. </p>
 
 <p>You get the same, for less.</p>
 
@@ -443,26 +443,26 @@ You must replace <code>my-api-key</code> with your personal API key.
 <p>Method call parameters must be passed in the Body part of the request message using <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format.</p>
 
 <p>The <code class="prettyprint">Content-Type</code> header attribute must be set to <code class="prettyprint">application/json</code>.</p>
-<pre class="highlight javascript"><code>
-<span class="c1">// How to set dates and numbers.</span>
+<pre class="highlight plaintext"><code>
+// How to set dates and numbers.
 
-<span class="p">{</span>
+{
 
-    <span class="p">...</span>
+    ...
 
-    <span class="s2">"date"</span> <span class="p">:</span> <span class="s2">"1482932562"</span>
+    "date" : "1482932562"
 
-    <span class="p">...</span>
+    ...
 
-    <span class="s2">"total"</span> <span class="p">:</span> <span class="mf">19.99</span>
+    "total" : 19.99
 
-    <span class="p">...</span>
+    ...
 
-    <span class="s2">"countryCode"</span> <span class="p">:</span> <span class="s2">"FR"</span>
+    "countryCode" : "FR"
 
-    <span class="p">...</span>
+    ...
 
-<span class="p">}</span>
+}
 </code></pre>
 <h3 id="dates-format">Dates Format</h3>
 
@@ -680,16 +680,16 @@ You must replace <code>my-api-key</code> with your personal API key.
 <blockquote>
 <p>Send email API response example </p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-<span class="s2">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-<span class="s2">"statusMessage"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-<span class="s2">"info"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"remainingCredits"</span><span class="p">:</span> <span class="mi">995</span><span class="p">,</span>
-    <span class="s2">"bounceRatio"</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="s2">"complaintRatio"</span> <span class="p">:</span> <span class="mf">0.1</span>
-    <span class="p">}</span>  
-<span class="p">}</span>
-</code></pre><pre class="highlight csharp"><code><span class="n">SendEmailResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"statusMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"remainingCredits"</span><span class="p">:</span><span class="w"> </span><span class="mi">995</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bounceRatio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"complaintRatio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="w">
+    </span><span class="p">}</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight csharp"><code><span class="n">SendEmailResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
 
 <span class="k">switch</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">){</span>  
     <span class="k">case</span> <span class="m">200</span><span class="p">:</span> <span class="c1">// message sent.</span>
@@ -728,6 +728,23 @@ You must replace <code>my-api-key</code> with your personal API key.
 
 <h4 id="sendemailresponseuserinfo">SendEmailResponseUserInfo</h4>
 
+<blockquote>
+<p>Send Email response example when
+using invalid recipient address.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"remainingCredits"</span><span class="p">:</span><span class="w"> </span><span class="mi">999999823</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bounceRatio"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"complaintRatio"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prohibitedAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"bounce+9999988@simulator.amazonses.com"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"statusMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No destination addresses after checking related contacts bounces and complaints."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -750,11 +767,18 @@ You must replace <code>my-api-key</code> with your personal API key.
 <td>Percentaje</td>
 <td>Your current complaint ratio</td>
 </tr>
+<tr>
+<td>prohibitedAddresses</td>
+<td>List of strings</td>
+<td>The addresses deleted from the message</td>
+</tr>
 </tbody></table>
 
 <aside class="warning">
 Take care of the remaining credits and ratios before sending a new message.
 </aside>
+
+<p>Please take note that <code class="prettyprint">prohibitedAddresses</code> attribute indicates the addresses that have been deleted from the message before sending due to bounces and complaints. When a recipient address is not valid or user sends a complaint/spam warning, we mark the related email as not-valid for sending.</p>
 
 <h2 id="add-contact">Add Contact</h2>
 
@@ -889,11 +913,11 @@ Take care of the remaining credits and ratios before sending a new message.
 <blockquote>
 <p>Add contact API response example </p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-<span class="s2">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-<span class="s2">"statusMessage"</span><span class="p">:</span> <span class="s2">""</span>
-<span class="p">}</span>
-</code></pre><pre class="highlight csharp"><code><span class="n">AddContactResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"statusMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight csharp"><code><span class="n">AddContactResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">API</span><span class="p">.</span><span class="nf">SendEmail</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>
 
 <span class="k">switch</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">){</span>  
     <span class="k">case</span> <span class="m">200</span><span class="p">:</span> <span class="c1">// contact added.</span>
@@ -935,11 +959,11 @@ Take care of the remaining credits and ratios before sending a new message.
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>The call was executed correctly.</td>
+<td>The call was executed correctly</td>
 </tr>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Check your request parameters.</td>
+<td>Bad Request &ndash; Check your request parameters</td>
 </tr>
 <tr>
 <td>401</td>
@@ -947,11 +971,11 @@ Take care of the remaining credits and ratios before sending a new message.
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden / Too Many Requests &ndash; Slow down!</td>
+<td>Forbidden &ndash; Check your credits or bounce/complaint ratios</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; Your API key is valid but there is no related user on our servers.</td>
+<td>Not Found &ndash; Your API key is valid but there is no related user on our servers</td>
 </tr>
 <tr>
 <td>405</td>
@@ -979,11 +1003,11 @@ Take care of the remaining credits and ratios before sending a new message.
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later</td>
 </tr>
 </tbody></table>
 
