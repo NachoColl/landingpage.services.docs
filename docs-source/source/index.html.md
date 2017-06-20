@@ -11,40 +11,40 @@ search: false
 # Introduction
 
 ```notes
-Use mustache.website to send your Email Marketing
-and host your Landing Pages! 
+Using mustache.website you can also
+host your One Page Landings! 
 ```
 
-[mustache.website](https://mustache.website) is a service you can use to manage your **Contact List**, execute your **Email Marketing** campaigns, send **Transactional Emails** and host your **Landing Pages**. By using state-of-the-art architecture, [mustache.website](https://mustache.website) delivers a professional tool at the minimum cost. 
+[mustache.website](https://mustache.website) is a free service you can use to send your **Email Marketing Campaigns** and your **Transactional Messages**.
 
-You get the same, for less.
 
-## Service Support
+## Is this really free?
 
-```notes
-Do not hesitate to create a new issue
-if you need help.
-```
 
-If you found an issue, please click [here](https://github.com/NachoColl/mustache.website.docs/issues) to open a new ticket or contact [me](https://www.linkedin.com/in/ignaciocoll/) on LinkedIn.
+Yes. 
+
+Once registered you get 100 email credits to check how it works. If you decide to continue using the service, we just ask you to validate your communication practices are strictly under [CAN-SPAM compliance](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business).
 
 
 # Contacts List
 
-To manage your contact list you can manually add contacts, import your Contacts from a [CSV file](https://en.wikipedia.org/wiki/Comma-separated_values) or use the available API to manage your contacts programmatically.
+<aside class="notice">
+There is only one list for all your Contacts (like in a CRM System). If you need to send your campaign to some particular group you have to create a Target Group.
+</aside>
 
 
-## Adding Contacts
+## Add A New Contact
+
+To manually add a new contact, just select **My Contacts > Contact List** menu option and then click on the **New Contact** button. Enter the contact attributes and click on the Save button.
 
 ```notes
-Please note that the Email attribute is a key 
-value that cannot be changed after creation. 
-
 If you need to change a contact email, you must 
 delete it and create a new contact.
 ```
 
-To add a new contact, just select **My Contacts > Contact List** menu option and then click on the **New Contact** button. Enter the contact attributes and click on the Save button.
+<aside class="warning">
+The Email attribute is a key value that cannot be changed after creation. 
+</aside>
 
 <img src="images/new-contact.jpg" class="img-photo" />
 
@@ -786,8 +786,18 @@ Code | Meaning
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later
 
 
+# Support
+
+```notes
+Do not hesitate to create a new issue
+if you need help.
+```
+
+If you found an issue, please click [here](https://github.com/NachoColl/mustache.website.docs/issues) to open a new ticket or contact [me](https://www.linkedin.com/in/ignaciocoll/) on LinkedIn.
+
+
+
+
 <br/><br/>
 
 <span style="font-size:10px">This is THE END ;)</span>
-
-

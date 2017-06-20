@@ -1,39 +1,47 @@
-<%#
-Copyright 2008-2013 Concur Technologies, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may
-not use this file except in compliance with the License. You may obtain
-a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
-%>
 <% language_tabs = current_page.data.language_tabs || [] %>
-<!doctype html>
-<html>
-  <head>
-    <title>Mustache Help Pages</title>
-    <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Nacho Coll" />
-    <meta name="description" content="Mustache Email Marketing help pages." />
-    <meta name="keywords" content="mustache.website help, mustache help, email marketing, mailing, send email, landing page, landing, web page" />
-    <meta name="robots" content="all">
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mustache Email Marketing help pages." />
-    <meta property="og:description" content="Get instructions on how to use Mustache to send your email campaigns and host your landing pages for free." />
-    <meta property="og:url" content="https://mustache.website/help/index.htm" />
-    <meta property="og:site_name" content="mustache.website" />
-    <link rel="canonical" href="https://mustache.website" />
-    <!-- Icons -->
-    <link rel="shortcut icon" href="https://d2m9ia44cpx81c.cloudfront.net/images/favicon.png" />
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 en no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="en no-focus">
+  
+<!--<![endif]-->
+<head itemscope itemtype="http://schema.org/WebSite">
+  <title itemprop='name'>Mustache Website Help</title>
+  <!-- charset -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+  
+  <!-- page cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <!-- google search -->
+  <meta name="robots" content="all">
+  <meta name="googlebot" content="all" />
+  <meta name="google" content="notranslate" />
+  <meta name="google" content="nositelinkssearchbox" />
+  <meta name="author" content="Nacho Coll" />
+  <meta name="keywords" content="email marketing help, create email marketing, email API" itemprop='keywords' />
+  <meta name="description" content="Get the required Mustache.Website mailing tool help." itemprop='description' />
+  <link rel="canonical" href="https://mustache.website/help/index.html" itemprop="url" />
+
+  <!-- http://ogp.me/, Open Graph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Build your Email Marketing Campaigns and send your Transactional messages for less." />
+  <meta property="og:description" content="Send your mailing for one tenth of the cost. Host your landing pages for free." />
+  <meta property="og:url" content="https://mustache.website" />
+  <meta property="og:site_name" content="Mustache Mailing Tool" />
+  <meta property="og:image" content="http://mustache.website/_images/mustache-website-email-marketing.jpg" />
+  <meta property="og:image:secure_url" content="https://mustache.website/_images/mustache-website-email-marketing.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- icon -->
+  <link rel="shortcut icon" href="https://d2m9ia44cpx81c.cloudfront.net/images/favicon.png" />
+  
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
