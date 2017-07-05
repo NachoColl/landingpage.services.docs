@@ -35,20 +35,30 @@ There is only one list for all your Contacts (like in a CRM System). If you need
 
 ## Add A New Contact
 
-To manually add a new contact, just select **My Contacts > Contact List** menu option and then click on the **New Contact** button. Enter the contact attributes and click on the Save button.
-
 ```notes
-If you need to change a contact email, you must 
-delete it and create a new contact.
+Check the how-to video tutorials at 
+https://vimeo.com/channels/1262663
 ```
 
-<aside class="warning">
-The Email attribute is a key value that cannot be changed after creation. 
-</aside>
+To manually add a new contact, just select **My Contacts > Contact List** menu option and then click on the **New Contact** button. 
+
+<img src="images/contacts-list-new.jpg" class="img-photo" />
+
+A new contact form is displayed so you can enter your contact attributes and save.
 
 <img src="images/new-contact.jpg" class="img-photo" />
 
+<aside class="warning">
+Please note that the Email attribute is a key value that cannot be changed after creation. If you need to change a contact's email address, you have to delete the related contact and create a new one.
+</aside>
 
+## Custom Attributes
+
+If you need some custom attributes just check the next video to get instructions.
+
+<p>
+<iframe src="https://player.vimeo.com/video/223344876" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>
 
 
 ## Import Contacts
@@ -59,7 +69,13 @@ try to import some small files with
 a few records to check the results.
 ```
 
-Before you start, please check that your [CSV file](https://en.wikipedia.org/wiki/Comma-separated_values) follows the next rules:
+To get an introductory overview of the import process, please check the next video then read the related help instructions.
+
+<p>
+<iframe src="https://player.vimeo.com/video/224047037" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>
+
+Before you start, check that your [CSV file](https://en.wikipedia.org/wiki/Comma-separated_values) follows the next rules:
 
 - The first row contains the column names.
 - There is an Email attribute column.
@@ -69,7 +85,6 @@ Before you start, please check that your [CSV file](https://en.wikipedia.org/wik
     * MM/DD/YYYY, e.g. 01/25/2015
     * [Unix time](https://en.wikipedia.org/wiki/Unix_time) format (milliseconds), e.g. 1492364709813 representing Sun Apr 16 2017 19:45:09 GMT+0200.
 
-<br/>
 
 To start the import process click on **My Contacts > Import** menu option and select your CSV file. 
 
@@ -114,15 +129,17 @@ just going to be able to send a Campaign
 to all your contacts.
 ```
 
-When you create a new Email Marketing campaign, you select the [Target Group](https://en.wikipedia.org/wiki/Target_audience) to which you want to send the message. That means that if you want to send your campaign to an specific group of contacts, you have to create a new Target Group that defines that group (e.g. Canada Users).
+When you create a new Email Marketing campaign, you select the [Target Group](https://en.wikipedia.org/wiki/Target_audience) to which you want to send the message. That means that if you want to send your campaign to a specific group of contacts, you need to create a new Target Group that defines that group (e.g. Canada Users).
 
 ```notes
 A Target Group is a database filter 
 definition.
 ```
-<br/>
+<p>
+<iframe src="https://player.vimeo.com/video/223457231" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>
 
-To create a target group, go to **My Contacts > Contact List** and click on the **Target Groups** button.
+To create a target group, just go to Contacts List menu option and click on the **Target Groups** button. Add the attributes values that define your target group, enter a Target Group name and click on the **Save as NEW target group** button.
 
 
 <img src="images/target-group-create.jpg" class="img-photo" />
@@ -132,33 +149,28 @@ Before saving a new Target Group, click on
 the Search button to test the filter.
 ```
 
-Add the attributes values that define your target group, enter a Target Group name and click on the **Save as NEW target group** button.
-
+<aside class="notice">
+Use the Search button to check your Target Group results before you save it.
+</aside>
 
 # Email Campaigns
 
-To create a new Email Campaign go to **Email Marketing > Campaigns** and click on **New Campaign** button. Enter a campaign name, select the Target Group you want to send the email message and click on the **Save** button.
+<p>
+<iframe src="https://player.vimeo.com/video/223613778" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>
 
-<img src="images/campaign-select-target-group.jpg" class="img-photo" />
+## Campaign Definition
 
+To create a new Email Marketing campaign, just click on the New Campaign button and set the campaign name and [Target Group](#target-groups).
 
-## Message Content
-
-After you've set the campaign name and Target Group, click on the campaign **email content** button to setup the campaign email message. 
 
 <img src="images/campaign-create.jpg" class="img-photo" />
 
-```notes
-You can change the base template HTML code
-when required to get the email message 
-format you need.
-```
+Once initially created, click on the Edit Content button to define the email content and attributes.
 
-The first time you click on the **email content** button you will get the option to select the base template you want to start building your campaign email. Check for the available templates and select the option that best fits your needs.
+<img src="images/campaign-edit-content.jpg" class="img-photo" />
 
-<img src="images/campaign-select-base-template.jpg" class="img-photo" />
-
-If you take a look at the next image, the content is defined by filling the text areas on the right, and not directly on the HTML preview.
+If you take a look at the next image, the content is defined by selecting the [template](#html-templates) you want to use and filling the text boxes on the right (and not directly on the HTML preview).
 
 ```notes
 mustache.website templates use the 
@@ -169,135 +181,56 @@ a few textboxes.
 
 <img src="images/campaign-mail-content.jpg" class="img-photo" />
 
-If the selected template needs some modifications to fit your needs, you can change the HTML code. Click on the **Change HTML Code** button, and an HTML editor will be displayed. Just take care that if you want to add a new mustache, you must use the correct format.
+If the selected template needs some modifications to fit your needs, you can change the HTML code by clicking on the **Change HTML Code** button. Please note that you need to know how to code HTML to modify the email content template. We recommend those changes to be executed by an HTML specialist.
+
 
 <img src="images/campaign-mail-content-change-html-code.jpg" class="img-photo" />
+
+## Send Test Email
+
+To check how your Campaign email will look, you can send a test email and get the result in your email inbox. Once you’re done with all the required modifications, save, and your campaign will be ready to execute.
+
+<img src="images/campaign-test.jpg" class="img-photo" />
 
 
 ## Campaign Execution
 
-Once your campaign is ready go to **Email Marketing > Campaigns** list and click on the **run the campaign** to start sending the email messages to your contacts. 
+To start your Email Campaign click on the **run the campaign** option and Mustache.Website will start to send the emails to related [Target Group](#target-groups).
 
 ```notes
 You can pause a campaign by just
 selecting the Stop campaign option.
 ```
 
-<img src="images/campaign-options.jpg" class="img-photo" />
+<img src="images/campaign-run.jpg" class="img-photo" />
 
-While running, you will get updates indicating the number of messages sent, delivered and the related bounces and complaints.
+While running, you will get updates indicating the number of messages sent, the messages correctly delivered to destination email servers and the related bounces and complaints.
 
 
 # Landing Pages
 
-```notes
-HTML pages are saved on AWS S3 bucket 
-as static HTML pages. 
+Use Mustache.Website to create and host your landing pages for free. 
 
-Please note that you can use your own domain(s)
-to access your pages.
-```
+<aside class="notice">
+The HTML pages are saved on AWS S3 bucket as static HTML pages, getting improved load speed.
+</aside>
 
-[mustache.website](https://mustache.website) landing pages are created by selecting an HTML template with some {{[mustaches](http://mustache.github.io/)}} that define the areas you can change. To create a new web page then you just need to select a template and fill the {{mustaches}}. 
-
-There is no need to go through a new HTML design process every time!
-
-## WEB Templates
-
-> A WEB template example.
+## Building a Web Page
 
 ```notes
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>{{meta-page_title-the_page_title}}</title>
-</head> 
-
-<html>
-<body>
-    
-    <h1>{{text-header_text-big_text}}</h1>
-    
-</body>
-</html>
+You can use your own domain
+to access your landing page.
 ```
 
-Before you can go for your landing pages you need to create at least one template. To start, select **Landing Pages > WEB Templates** menu option and click on the **New Template** button. 
-
-<img src="images/landing-page-new.jpg" class="img-photo"/>
-
-Check the available base templates you can start from, and click on the **Select** button for the selected template.
-
-```notes
-You can also start to code your template 
-from scratch if required!
-```
-
-<img src="images/landing-page-select-base-template.jpg" class="img-photo"/>
-
-
-```notes
-
-Just fill the 'mustaches', click save, and your 
-landing page will be online!
-
-```
-
-Once selected, you will get an HTML editor so you can change the HTML. Just remember to use {{mustaches}} to the define the areas that will be required to modify when building the page later.
-
-<img src="images/landing-page-html-editor.jpg" class="img-photo"/>
- 
-### Adding mustaches
-
-To make things easy when building your landing pages, we added different types of mustaches that are coded as follows: 
-
-`{{<meta|text|icon|image|link|html>-<name>-<description>}}`
-
-<img src="images/template-mustache.png"  class="img-photo" />
-
-```notes
-To insert a mustache in your HTML code, 
-you must use the correct format.
-
-We recommend that you use the Insert Mustache
-button.
-
-```
-
-* **Meta** mustaches are used to set meta properties content.<br/> `{{{meta-page_title-the_page_title}}}`
-
-* **Only Text** to include non-formatted text (format is already set on the template!).<br/> `{{{text-header_content-the_headear_title}}}`
-
-* **Icon** so you can easely include a [Simple Icon](http://simplelineicons.com/) on your page. <br/> `{{{icon-feature-app_feature_icon}}}`
-
-* **Image** to upload your images and use them when required. <br/> `{{{image-app_snapshot-product_snapshot}}}`
-
-* **Link** to add references between your landing pages. <br/> `{{{link-download_link-the_app_download_link}}}`
-
-* and **HTML** to add any extra HTML code your page may require. <br/> `{{{html-google-google_analytics_code}}}`
-
-<br/>
-By using those types, you get some extra help on page creation. For example, if you set an Icon mustache, you will get a button to select the icon from a list.
-
-<img src="images/landingpage.icon-mustache.png"  class="img-photo" />
-
-
-## Landing Page
-
-```notes
-Using WEB Templates you don't
-have to do any design decision 
-when building your pages.
-
-```
-
-To build and get online your landing page, click on **Landing Pages > My Pages** menu option and then click on the **New Landing Page** button. 
+To build and get online your landing page, click on the Page List menu option and then click on the **New Landing Page** button. 
 
 <img src="images/landing-page-build.jpg" class="img-photo"/>
 
-You will get a form to set a page name, a description and select the template you want to use. 
+Select the [Template](#html-templates) you want to use, set a page name and a description to start. 
+
+<aside class="warning">
+Once saved, the page name cannot be changed!
+</aside>
 
 The key point is that when the template gets selected, all the related {{mustaches}} will get listed so you only have to fill the related boxes and save your work to get your page online.
 
@@ -305,10 +238,6 @@ The key point is that when the template gets selected, all the related {{mustach
 When saved, the page will get visible 
 on the Internet.
 ```
-
-<aside class="warning">
-IMPORTANT NOTE: once saved, the page name cannot be changed.
-</aside>
 
 ```notes
 If you change the template, all the 
@@ -326,7 +255,7 @@ When your page gets saved, it's hosted on AWS S3 instantly. To check how it look
 That link will look like `https://s3-us-west-2.amazonaws.com/files.landingpage.services/us-west-2:ca67230b-4f84-43bb-96d7-7fcbfdf1a034/My-first-page.html`, but of course you can use your own domain(s) if it's required.
 
 
-### Use your domain(s)
+## Use your domain(s)
 
 ```notes
 A page can have multiple domains pointing to it!
@@ -349,9 +278,112 @@ Please note that you also need to add a CNAME entry on your domain's DNS server.
 `www.mydomain.com   CNAME   ec2-52-38-184-2.us-west-2.compute.amazonaws.com`
 
 
+
+# HTML Templates
+
+> A simple template example.
+
+```notes
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{meta-page_title-the_page_title}}</title>
+</head> 
+
+<html>
+<body>
+    
+    <h1>{{text-header_text-big_text}}</h1>
+    
+</body>
+</html>
+```
+
+Mustache.Website use HTML Templates to set the content for your [Email Campaigns](#email-campaigns) (and for your [Landing Pages](#landing-pages)). When you create your service account, you get some Templates examples, but you certainly will be required to create your own.
+
+<img src="images/web-template-new.png" class="img-photo" />
+
+All the templates you create will use the [Mustache](https://en.wikipedia.org/wiki/Mustache_(template_system)) template technique. As a result your Email Campaigns or Landing Pages content will get defined very easily by just filling the "holes" or mustaches you define (e.g. you create a single newsletter template to use for all your newsletters).
+
+<aside class="warning">
+Defining a template means building HTML code, please hire an HTML specialist if you don't know how to code HTML!
+</aside>
+
+## Create a Template 
+
+There are 2 types of Templates: **Email Templates** (to be used on your [Email Marketing Campaigns](#email-campaigns)) and **Web Templates** (for your [Landing Pages](#landing-pages)). 
+
+<img src="images/templates-types.jpg" class="img-photo" />
+
+To create a new Template you will be initially asked to select a Base Template to start from. If you want to build the template HTML code from scratch just cancel the initial selection dialog.
+
+<img src="images/web-template-select-base.png" class="img-photo" />
+
+```notes
+To insert a mustache in your HTML code, 
+you must use the correct format.
+
+Use the Insert Mustache button (or press
+the right button to get the 
+context menu).
+
+```
+
+To finish your template then, just write the HTML code as usual and create the "mustaches" the Marketing agent will be required to fill (the product image, the news text, etc). 
+
+<img src="images/web-template-html.png" class="img-photo" />
+
+
+## Available Mustaches
+
+```notes
+Mustaches are coded as follows: 
+
+{{<meta|text|icon|image|link|html>-<name>-<description>}}
+```
+
+You can use the next types of mustaches on your template HTML code: 
+
+<img src="images/template-mustache.jpg"  class="img-photo" />
+
+* **Meta Text** to set text content on the head section (e.g. `<title>{{{meta-page_title-the_page_title}}}</title>`).
+
+<img src="images/template-mustache-meta.jpg"  class="img-photo" />
+
+* **Text** to include non-formatted text, that is, the format is already set on the template (e.g. `<p class="text-primary">{{{text-just_a_text-enter_the_head_text}}}</p>`).
+
+<img src="images/template-mustache-text.jpg"  class="img-photo" />
+
+* **Icon** so the final content creator can easely include a [Simple Icon](http://simplelineicons.com/) on the page (e.g.`<div class="feature-icon">{{{icon-my_icon-this_is_just_an_icon_example}}}</div>`).
+
+<img src="images/landingpage.icon-mustache.png"  class="img-photo" />
+
+<aside class="warning">
+Dont' forget to include the related icon CSS library on the template HTML code: <br/>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" /&gt;
+</aside>
+
+
+* **Image Tag** that will allow to insert a complete IMG tag and be more flexible on image styling (e.g.`<section class="header-image">{{{image-logo-the_logo_image}}}</section>`).
+
+<img src="images/template-mustache-image.jpg"  class="img-photo" />
+
+* **Image Src** that will allow just to define the image src as the image styling is completely defined on the template (e.g. `<img src="{{{imagesrc-header_image-select_the_header_image}}}" />`).
+
+<img src="images/template-mustache-imagesrc.jpg"  class="img-photo" />
+
+* **Url** to add a web address (e.g. `<a href="{{{link-more_info_url-set_the_mote_info_url}}}" >Click to go</a>`).
+
+<img src="images/template-mustache-link.jpg"  class="img-photo" />
+
+* and **HTML** to add any extra HTML code your content may require (e.g. `{{{html-header-html_header_content}}}`).
+
+<img src="images/template-mustache-html.jpg"  class="img-photo" />
+
 # API
 
-You can use the Mustache API to:
+Use the Mustache.Website API to:
 
 - add new contacts (email receivers) programmatically,
 - send transactional emails (emails not related with any campaign).
